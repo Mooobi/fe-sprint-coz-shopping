@@ -1,0 +1,81 @@
+.product {
+  position: relative;
+  width: 264px;
+  height: 264px;
+}
+
+.img {
+  width: 264px;
+  height: 210px;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.discount {
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 19px;
+  color: #452cdd;
+}
+
+.subTitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.count {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.follower {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.first {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+}
+
+.second {
+  position: absolute;
+  bottom: 32px;
+  right: 0;
+}
+
+.third {
+  position: absolute;
+  bottom: 13px;
+  left: 0;
+}
+
+.fourth {
+  position: absolute;
+  bottom: 13px;
+  right: 0;
+}
+
+.bookmark {
+  position: absolute;
+  bottom: 66px;
+  right: 12px;
+  filter: brightness(110%);
+}
