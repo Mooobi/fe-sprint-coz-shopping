@@ -1,0 +1,19 @@
+.listsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lists {
+  width: calc(288px * 4);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 52px;
+}
+
+.list {
+  margin: 12px;
+  list-style-type: none;
+}
