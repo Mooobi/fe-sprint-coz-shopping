@@ -16,10 +16,6 @@ const ProductLists = (props) => {
                     item={item}
                     handleBookmark={props.handleBookmark}
                     handleModalOpen={props.handleModalOpen}
-                    handleOpenOnToast={props.handleOpenOnToast}
-                    handleCloseOnToast={props.handleCloseOnToast}
-                    handleOpenOffToast={props.handleOpenOffToast}
-                    handleCloseOffToast={props.handleCloseOffToast}
                     bookmarked={props.bookmarked}
                     setBookmarked={props.setBookmarked}
                   />
