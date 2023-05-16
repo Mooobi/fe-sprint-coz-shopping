@@ -1,11 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Dummy from './Dummy';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 function App() {
   return (
     <>
-      <Dummy />
+      <Header />
+      <Footer />
     </>
   );
 }
