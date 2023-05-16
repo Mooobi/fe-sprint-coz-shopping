@@ -4,6 +4,10 @@ import ProductsListPage from './page/productsListPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
+import { Slide, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import bookmarkOff from './icon/bookmark - off.png';
+import bookmarkOn from './icon/bookmark - on.png';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -17,10 +21,6 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const [bookmarked, setBookmarked] = useState([]);
-
-  const [onToast, setOnToast] = useState(null);
-
-  const [offToast, setOffToast] = useState(null);
 
   useEffect(() => {
     fetch('http://cozshopping.codestates-seb.link/api/v1/products')
@@ -69,49 +69,34 @@ function App() {
     setModal(false);
   };
 
+  const CustomToast = ({ message, imageSrc }) => {
+    return (
+      <div>
+        <img src={imageSrc} alt="toast" />
+        <span>{message}</span>
+      </div>
+    );
+  };
+
   const handleBookmark = (itemId) => {
     if (bookmarked.includes(itemId)) {
       setBookmarked(bookmarked.filter((id) => id !== itemId));
+      toast(
+        <CustomToast
+          message="상품이 북마크에서 제거되었습니다."
+          imageSrc={bookmarkOff}
+        />
+      );
     } else {
       setBookmarked([...bookmarked, itemId]);
+      toast(
+        <CustomToast
+          message="상품이 북마크에 추가되었습니다."
+          imageSrc={bookmarkOn}
+        />
+      );
     }
   };
-
-  const handleOpenOnToast = () => {
-    setOnToast(true);
-  };
-
-  const handleCloseOnToast = () => {
-    setOnToast(false);
-  };
-
-  const handleOpenOffToast = () => {
-    setOffToast(true);
-  };
-
-  const handleCloseOffToast = () => {
-    setOffToast(false);
-  };
-
-  useEffect(() => {
-    let timer;
-    if (onToast) {
-      timer = setTimeout(() => {
-        handleCloseOnToast();
-      }, 2000);
-    }
-    return () => clearTimeout(timer);
-  }, [onToast]);
-
-  useEffect(() => {
-    let timer;
-    if (offToast) {
-      timer = setTimeout(() => {
-        handleCloseOffToast();
-      }, 2000);
-    }
-    return () => clearTimeout(timer);
-  }, [offToast]);
 
   return (
     <>
@@ -128,21 +113,23 @@ function App() {
               visible={visible}
               handleBookmark={handleBookmark}
               handleModalOpen={handleModalOpen}
-              handleOpenOnToast={handleOpenOnToast}
-              handleCloseOnToast={handleCloseOnToast}
-              handleOpenOffToast={handleOpenOffToast}
-              handleCloseOffToast={handleCloseOffToast}
               bookmarked={bookmarked}
               setBookmarked={setBookmarked}
               modal={modal}
               handleModalClose={handleModalClose}
               selectedItem={selectedItem}
-              onToast={onToast}
-              offToast={offToast}
             />
           }
         />
       </Routes>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        pauseOnFocusLoss={false}
+        hideProgressBar={true}
+        closeButton={false}
+        transition={Slide}
+      />
       <Footer />
     </>
   );

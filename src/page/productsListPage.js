@@ -1,7 +1,6 @@
 import ProductFilter from '../components/ProductFilter';
 import ProductLists from '../components/ProductLists';
 import Modal from '../components/Modal';
-import Toast from '../components/Toast';
 
 const ProductsListPage = (props) => {
   const {
@@ -20,8 +19,6 @@ const ProductsListPage = (props) => {
     modal,
     handleModalClose,
     selectedItem,
-    onToast,
-    offToast,
   } = props;
 
   return (
@@ -50,7 +47,6 @@ const ProductsListPage = (props) => {
         bookmarked={bookmarked}
         setBookmarked={setBookmarked}
       />
-      <Toast onToast={onToast} offToast={offToast} />
     </>
   );
 };

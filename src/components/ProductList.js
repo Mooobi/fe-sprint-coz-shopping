@@ -4,15 +4,8 @@ import bookmarkOn from '../icon/bookmark - on.png';
 import { useEffect } from 'react';
 
 const ProductList = (props) => {
-  const {
-    item,
-    handleBookmark,
-    handleModalOpen,
-    handleOpenOnToast,
-    handleOpenOffToast,
-    bookmarked,
-    setBookmarked,
-  } = props;
+  const { item, handleBookmark, handleModalOpen, bookmarked, setBookmarked } =
+    props;
 
   const {
     type,
@@ -63,7 +56,6 @@ const ProductList = (props) => {
             onClick={(e) => {
               e.stopPropagation();
               handleBookmark(item.id);
-              handleOpenOnToast();
             }}
           />
         )}
@@ -75,7 +67,6 @@ const ProductList = (props) => {
             onClick={(e) => {
               e.stopPropagation();
               handleBookmark(item.id);
-              handleOpenOffToast();
             }}
           />
         )}
@@ -92,7 +83,7 @@ const ProductList = (props) => {
               {discountPercentage ? `${discountPercentage}%` : '00%'}
             </p>
             <p className={`${classes.price} ${classes.fourth}`}>
-              {Number(price).toLocaleString()}
+              {`${Number(price).toLocaleString()}원`}
             </p>
           </section>
         )}
