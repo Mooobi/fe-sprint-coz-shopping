@@ -1,0 +1,51 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.madalView {
+  position: relative;
+  width: 744px;
+  height: 480px;
+}
+
+.modalImg {
+  width: 744px;
+  height: 480px;
+  filter: drop-shadow(0px 0px 36px rgba(0, 0, 0, 0.5));
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  filter: brightness(110%);
+}
+
+.bookmark {
+  position: absolute;
+  bottom: 29px;
+  left: 24px;
+  filter: brightness(110%);
+}
+
+.title {
+  position: absolute;
+  bottom: 24px;
+  left: 56px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
