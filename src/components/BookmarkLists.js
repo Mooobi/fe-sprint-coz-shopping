@@ -4,9 +4,10 @@ import classes from './ProductLists.module.css';
 const BookmarkLists = (props) => {
   const {
     products,
+    filter,
     visible,
     handleBookmark,
-    handleModalOpen,
+    handleModalChange,
     bookmarked,
     setBookmarked,
   } = props;
@@ -15,7 +16,8 @@ const BookmarkLists = (props) => {
     <section className={classes.listsContainer}>
       <section className={classes.lists}>
         {products
-          .filter((item) => bookmarked.includes(item.id))
+          .filter((item) => localStorage.getItem(item.id) !== null)
+          .filter((item) => filter === null || item.type === filter)
           .slice(visible.start, visible.end)
           .map((item) => {
             return (
@@ -24,7 +26,7 @@ const BookmarkLists = (props) => {
                   <ProductList
                     item={item}
                     handleBookmark={handleBookmark}
-                    handleModalOpen={handleModalOpen}
+                    handleModalChange={handleModalChange}
                     bookmarked={bookmarked}
                     setBookmarked={setBookmarked}
                   />

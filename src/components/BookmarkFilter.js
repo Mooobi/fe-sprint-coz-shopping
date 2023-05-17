@@ -20,10 +20,6 @@ const BookmarkFilter = (props) => {
     { image: brand, label: '브랜드', type: 'Brand' },
   ];
 
-  const handleBookmarkFilter = (item) => {
-    handleFilterClick(item.type);
-  };
-
   return (
     <>
       <section className={classes.filterContainer}>
