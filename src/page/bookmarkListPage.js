@@ -1,43 +1,43 @@
-import BookmarkFilter from '../components/BookmarkFilter';
+import ProductFilter from '../components/ProductFilter';
 import BookmarkLists from '../components/BookmarkLists';
 import Modal from '../components/Modal';
+import classes from './mainPage.module.css';
 
 const BookmarkListPage = (props) => {
   const {
-    filter,
-    handleFilterClick,
     products,
+    filter,
     visible,
-    handleBookmark,
-    handleModalOpen,
     bookmarked,
-    setBookmarked,
-    modal,
-    handleModalClose,
     selectedItem,
+    modal,
+    handleFilterClick,
+    handleBookmark,
+    handleModalChange,
+    setBookmarked,
   } = props;
 
   return (
-    <>
-      <BookmarkFilter filter={filter} handleFilterClick={handleFilterClick} />
+    <div className={classes.wrapper}>
+      <ProductFilter filter={filter} handleFilterClick={handleFilterClick} />
       <BookmarkLists
         products={products}
         filter={filter}
         visible={visible}
         handleBookmark={handleBookmark}
-        handleModalOpen={handleModalOpen}
+        handleModalChange={handleModalChange}
         bookmarked={bookmarked}
         setBookmarked={setBookmarked}
       />
       <Modal
         modal={modal}
-        handleModalClose={handleModalClose}
+        handleModalChange={handleModalChange}
         selectedItem={selectedItem}
         handleBookmark={handleBookmark}
         bookmarked={bookmarked}
         setBookmarked={setBookmarked}
       />
-    </>
+    </div>
   );
 };
 

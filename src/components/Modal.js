@@ -2,42 +2,12 @@ import classes from './Modal.module.css';
 import closeButton from '../icon/closeButton.png';
 import bookmarkOff from '../icon/bookmark - off.png';
 import bookmarkOn from '../icon/bookmark - on.png';
-import { useEffect } from 'react';
 
 const Modal = (props) => {
-  const {
-    modal,
-    handleModalClose,
-    selectedItem,
-    handleBookmark,
-    bookmarked,
-    setBookmarked,
-  } = props;
+  const { modal, handleModalChange, selectedItem, handleBookmark, bookmarked } =
+    props;
+
   const isBookmarked = bookmarked.includes(selectedItem?.id);
-
-  useEffect(() => {
-    const itemData = localStorage.getItem(selectedItem?.id);
-    if (itemData) {
-      setBookmarked([...bookmarked, selectedItem?.id]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setBookmarked, selectedItem?.id]);
-
-  useEffect(() => {
-    const saveData = () => {
-      localStorage.setItem(selectedItem?.id, JSON.stringify(selectedItem));
-    };
-
-    const removeData = () => {
-      localStorage.removeItem(selectedItem?.id);
-    };
-
-    if (isBookmarked) {
-      saveData();
-    } else {
-      removeData();
-    }
-  }, [isBookmarked, selectedItem, selectedItem?.id]);
 
   const handleBookmarkClick = (e) => {
     e.stopPropagation();
@@ -47,7 +17,7 @@ const Modal = (props) => {
   return (
     <>
       {modal && (
-        <section className={classes.backdrop} onClick={handleModalClose}>
+        <section className={classes.backdrop} onClick={handleModalChange}>
           <section className={classes.madalView}>
             <img
               src={selectedItem?.image_url || selectedItem?.brand_image_url}

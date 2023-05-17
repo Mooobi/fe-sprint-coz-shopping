@@ -5,15 +5,14 @@ import Modal from '../components/Modal';
 
 const MainPage = (props) => {
   const {
-    filter,
     products,
-    handleBookmark,
-    handleModalOpen,
     bookmarked,
-    setBookmarked,
     modal,
-    handleModalClose,
     selectedItem,
+    handleBookmark,
+    handleModalChange,
+    handleFilterClick,
+    setBookmarked,
   } = props;
 
   return (
@@ -24,24 +23,20 @@ const MainPage = (props) => {
             <p className={classes.title}>상품 리스트</p>
           </Link>
           <section className={classes.lists}>
-            {products
-              .filter((item) => filter === null || item.type === filter)
-              .slice(0, 4)
-              .map((item) => {
-                return (
-                  <ul key={item.id}>
-                    <li className={classes.list}>
-                      <ProductList
-                        item={item}
-                        handleBookmark={handleBookmark}
-                        handleModalOpen={handleModalOpen}
-                        bookmarked={bookmarked}
-                        setBookmarked={setBookmarked}
-                      />
-                    </li>
-                  </ul>
-                );
-              })}
+            {products.slice(0, 4).map((item) => {
+              return (
+                <ul key={item.id}>
+                  <li className={classes.list}>
+                    <ProductList
+                      item={item}
+                      handleFilterClick={handleFilterClick}
+                      handleBookmark={handleBookmark}
+                      handleModalChange={handleModalChange}
+                    />
+                  </li>
+                </ul>
+              );
+            })}
           </section>
         </section>
         <section className={classes.bookmarkList}>
@@ -50,8 +45,7 @@ const MainPage = (props) => {
           </Link>
           <section className={classes.lists}>
             {products
-              .filter((item) => bookmarked.includes(item.id))
-              .filter((item) => filter === null || item.type === filter)
+              .filter((item) => localStorage.getItem(item.id) !== null)
               .slice(0, 4)
               .map((item) => {
                 return (
@@ -59,10 +53,9 @@ const MainPage = (props) => {
                     <li className={classes.list}>
                       <ProductList
                         item={item}
+                        handleFilterClick={handleFilterClick}
                         handleBookmark={handleBookmark}
-                        handleModalOpen={handleModalOpen}
-                        bookmarked={bookmarked}
-                        setBookmarked={setBookmarked}
+                        handleModalChange={handleModalChange}
                       />
                     </li>
                   </ul>
@@ -73,7 +66,7 @@ const MainPage = (props) => {
       </section>
       <Modal
         modal={modal}
-        handleModalClose={handleModalClose}
+        handleModalChange={handleModalChange}
         selectedItem={selectedItem}
         handleBookmark={handleBookmark}
         bookmarked={bookmarked}

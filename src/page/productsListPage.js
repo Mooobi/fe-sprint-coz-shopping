@@ -4,17 +4,16 @@ import Modal from '../components/Modal';
 
 const ProductsListPage = (props) => {
   const {
-    filter,
-    handleFilterClick,
     products,
+    filter,
     visible,
-    handleBookmark,
-    handleModalOpen,
     bookmarked,
-    setBookmarked,
-    modal,
-    handleModalClose,
     selectedItem,
+    modal,
+    handleFilterClick,
+    handleBookmark,
+    handleModalChange,
+    setBookmarked,
   } = props;
 
   return (
@@ -25,13 +24,11 @@ const ProductsListPage = (props) => {
         filter={filter}
         visible={visible}
         handleBookmark={handleBookmark}
-        handleModalOpen={handleModalOpen}
-        bookmarked={bookmarked}
-        setBookmarked={setBookmarked}
+        handleModalChange={handleModalChange}
       />
       <Modal
         modal={modal}
-        handleModalClose={handleModalClose}
+        handleModalChange={handleModalChange}
         selectedItem={selectedItem}
         handleBookmark={handleBookmark}
         bookmarked={bookmarked}
