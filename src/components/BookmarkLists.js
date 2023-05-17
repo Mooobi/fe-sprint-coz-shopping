@@ -1,10 +1,9 @@
-import classes from './ProductLists.module.css';
 import ProductList from './ProductList';
+import classes from './ProductLists.module.css';
 
-const ProductLists = (props) => {
+const BookmarkLists = (props) => {
   const {
     products,
-    filter,
     visible,
     handleBookmark,
     handleModalOpen,
@@ -16,7 +15,7 @@ const ProductLists = (props) => {
     <section className={classes.listsContainer}>
       <section className={classes.lists}>
         {products
-          .filter((item) => filter === null || item.type === filter)
+          .filter((item) => bookmarked.includes(item.id))
           .slice(visible.start, visible.end)
           .map((item) => {
             return (
@@ -38,4 +37,4 @@ const ProductLists = (props) => {
   );
 };
 
-export default ProductLists;
+export default BookmarkLists;

@@ -1,8 +1,8 @@
-import ProductFilter from '../components/ProductFilter';
-import ProductLists from '../components/ProductLists';
+import BookmarkFilter from '../components/BookmarkFilter';
+import BookmarkLists from '../components/BookmarkLists';
 import Modal from '../components/Modal';
 
-const ProductsListPage = (props) => {
+const BookmarkListPage = (props) => {
   const {
     filter,
     handleFilterClick,
@@ -19,8 +19,8 @@ const ProductsListPage = (props) => {
 
   return (
     <>
-      <ProductFilter filter={filter} handleFilterClick={handleFilterClick} />
-      <ProductLists
+      <BookmarkFilter filter={filter} handleFilterClick={handleFilterClick} />
+      <BookmarkLists
         products={products}
         filter={filter}
         visible={visible}
@@ -41,4 +41,4 @@ const ProductsListPage = (props) => {
   );
 };
 
-export default ProductsListPage;
+export default BookmarkListPage;

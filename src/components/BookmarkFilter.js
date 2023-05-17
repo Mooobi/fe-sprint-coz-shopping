@@ -1,11 +1,11 @@
-import classes from './ProductFilter.module.css';
+import classes from './BookmarkFilter.module.css';
 import all from '../img/all.png';
 import brand from '../img/brand.png';
 import category from '../img/category.png';
 import exhibition from '../img/exhibition.png';
 import product from '../img/product.png';
 
-const ProductFilter = (props) => {
+const BookmarkFilter = (props) => {
   const { handleFilterClick, filter } = props;
 
   const filterCard = [
@@ -19,6 +19,10 @@ const ProductFilter = (props) => {
     { image: exhibition, label: '기획전', type: 'Exhibition' },
     { image: brand, label: '브랜드', type: 'Brand' },
   ];
+
+  const handleBookmarkFilter = (item) => {
+    handleFilterClick(item.type);
+  };
 
   return (
     <>
@@ -44,4 +48,4 @@ const ProductFilter = (props) => {
   );
 };
 
-export default ProductFilter;
+export default BookmarkFilter;

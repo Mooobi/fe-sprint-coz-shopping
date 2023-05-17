@@ -1,13 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import ProductsListPage from './page/productsListPage';
 import Header from './components/Header';
+import MainPage from './page/mainPage';
+import ProductsListPage from './page/productsListPage';
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import bookmarkOff from './icon/bookmark - off.png';
 import bookmarkOn from './icon/bookmark - on.png';
+import BookmarkListPage from './page/bookmarkListPage';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -21,6 +23,8 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const [bookmarked, setBookmarked] = useState([]);
+
+  const [scrollTop, setScrollTop] = useState(0);
 
   useEffect(() => {
     fetch('http://cozshopping.codestates-seb.link/api/v1/products')
@@ -46,6 +50,8 @@ function App() {
         end: prevState.end + 20,
       }));
     }
+
+    setScrollTop(scrollTop);
   };
 
   useEffect(() => {
@@ -104,9 +110,46 @@ function App() {
       <Routes>
         <Route
           exact
+          path="/"
+          element={
+            <MainPage
+              filter={filter}
+              handleFilterClick={handleFilterClick}
+              products={products}
+              handleBookmark={handleBookmark}
+              handleModalOpen={handleModalOpen}
+              bookmarked={bookmarked}
+              setBookmarked={setBookmarked}
+              modal={modal}
+              handleModalClose={handleModalClose}
+              selectedItem={selectedItem}
+            />
+          }
+        />
+        <Route
+          exact
           path="/products/list"
           element={
             <ProductsListPage
+              filter={filter}
+              handleFilterClick={handleFilterClick}
+              products={products}
+              visible={visible}
+              handleBookmark={handleBookmark}
+              handleModalOpen={handleModalOpen}
+              bookmarked={bookmarked}
+              setBookmarked={setBookmarked}
+              modal={modal}
+              handleModalClose={handleModalClose}
+              selectedItem={selectedItem}
+            />
+          }
+        />
+        <Route
+          exact
+          path="/bookmark"
+          element={
+            <BookmarkListPage
               filter={filter}
               handleFilterClick={handleFilterClick}
               products={products}
