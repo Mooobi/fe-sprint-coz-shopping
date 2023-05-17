@@ -10,8 +10,6 @@ const Modal = (props) => {
     handleModalClose,
     selectedItem,
     handleBookmark,
-    handleOpenOnToast,
-    handleOpenOffToast,
     bookmarked,
     setBookmarked,
   } = props;
@@ -44,11 +42,6 @@ const Modal = (props) => {
   const handleBookmarkClick = (e) => {
     e.stopPropagation();
     handleBookmark(selectedItem?.id);
-    if (!isBookmarked) {
-      handleOpenOnToast();
-    } else {
-      handleOpenOffToast();
-    }
   };
 
   return (

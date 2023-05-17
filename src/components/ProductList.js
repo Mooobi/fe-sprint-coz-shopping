@@ -19,7 +19,7 @@ const ProductList = (props) => {
     follower,
   } = item;
 
-  const isBookmarked = bookmarked.includes(item.id);
+  const isBookmarked = localStorage.getItem(item.id);
 
   useEffect(() => {
     const itemData = localStorage.getItem(item.id);

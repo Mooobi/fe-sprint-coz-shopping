@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 138px);
+  width: auto;
+}
+
+.productLists {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lists {
+  width: calc(288px * 4);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 52px;
+}
+
+.list {
+  margin: 12px;
+  list-style-type: none;
+}
+
+.bookmarkList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleWrapper {
+  width: 100%;
+  margin-left: 128px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: black;
+}
