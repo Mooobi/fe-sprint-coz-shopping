@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Mooobi/solo-project/static/css/main.522700f9.css",
+    "main.js": "/Mooobi/solo-project/static/js/main.8cc8c319.js",
+    "static/media/exhibition.png": "/Mooobi/solo-project/static/media/exhibition.543874d81c91d7cd4a1d.png",
+    "static/media/all.png": "/Mooobi/solo-project/static/media/all.bb9921febb60d97d4be7.png",
+    "static/media/brand.png": "/Mooobi/solo-project/static/media/brand.21230f0b7d7ae3fa1009.png",
+    "index.html": "/Mooobi/solo-project/index.html",
+    "main.522700f9.css.map": "/Mooobi/solo-project/static/css/main.522700f9.css.map",
+    "main.8cc8c319.js.map": "/Mooobi/solo-project/static/js/main.8cc8c319.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.522700f9.css",
+    "static/js/main.8cc8c319.js"
+  ]
+}
