@@ -1,6 +1,7 @@
 # fe-sprint-coz-shopping
 코드스테이츠 SEB_FE_44 과정에서 제작한 솔로프로젝트입니다.
-링크 : https://mooobi.github.io/fe-sprint-coz-shopping/products/list
+- 링크 : https://mooobi.github.io/fe-sprint-coz-shopping/products/list 
+<br/>
 (배포된 버전은 fetch 요청으로 데이터를 받아오지 않고, Data 파일을 포함하고 있습니다.
 gh pages의 특성상, 기본 url은 https로만 만들어지는데, 기존 코드에서 네트워크 요청은 http를 이용하기 합니다. 웹브라우저는 보안 상의 문제로 이러한 혼합 콘텐츠(Mixed Content)를 허용하지 않습니다. 따라서, 작동 방식만 간단하게 보여드리고자 더미 데이터를 사용하였습니다.)
 
