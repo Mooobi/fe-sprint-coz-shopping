@@ -5,9 +5,10 @@ import { Slide, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import MainPage from './page/mainPage';
-import Footer from './components/Footer';
 import ProductsListPage from './page/productsListPage';
 import BookmarkListPage from './page/bookmarkListPage';
+import Footer from './components/Footer';
+import Modal from './components/Modal';
 import bookmarkOn from './icon/bookmark - on.png';
 import bookmarkOff from './icon/bookmark - off.png';
 
@@ -120,13 +121,9 @@ function App() {
           element={
             <MainPage
               products={products}
-              bookmarked={bookmarked}
-              modal={modal}
-              selectedItem={selectedItem}
               handleBookmark={handleBookmark}
               handleModalChange={handleModalChange}
               handleFilterClick={handleFilterClick}
-              setBookmarked={setBookmarked}
             />
           }
         />
@@ -137,13 +134,9 @@ function App() {
               products={products}
               filter={filter}
               visible={visible}
-              bookmarked={bookmarked}
-              selectedItem={selectedItem}
-              modal={modal}
               handleFilterClick={handleFilterClick}
               handleBookmark={handleBookmark}
               handleModalChange={handleModalChange}
-              setBookmarked={setBookmarked}
             />
           }
         />
@@ -154,18 +147,21 @@ function App() {
               products={products}
               filter={filter}
               visible={visible}
-              bookmarked={bookmarked}
-              selectedItem={selectedItem}
-              modal={modal}
               handleFilterClick={handleFilterClick}
               handleBookmark={handleBookmark}
               handleModalChange={handleModalChange}
-              setBookmarked={setBookmarked}
             />
           }
         />
       </Routes>
       <Footer />
+      <Modal
+        modal={modal}
+        handleModalChange={handleModalChange}
+        selectedItem={selectedItem}
+        handleBookmark={handleBookmark}
+        bookmarked={bookmarked}
+      />
       <ToastContainer
         position="bottom-right"
         autoClose={2000}
