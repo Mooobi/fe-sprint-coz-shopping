@@ -5,19 +5,21 @@ import category from '../img/category.png';
 import exhibition from '../img/exhibition.png';
 import product from '../img/product.png';
 
-const ProductFilter = (props) => {
-  const { handleFilterClick, filter } = props;
+const FilterType = {
+  All: { type: null, label: '전체' },
+  Product: { type: 'Product', label: '상품' },
+  Category: { type: 'Category', label: '카테고리' },
+  Exhibition: { type: 'Exhibition', label: '기획전' },
+  Brand: { type: 'Brand', label: '브랜드' },
+};
 
+const ProductFilter = ({ handleFilterClick, filter }) => {
   const filterCard = [
-    { image: all, label: '전체', type: null },
-    {
-      image: product,
-      label: '상품',
-      type: 'Product',
-    },
-    { image: category, label: '카테고리', type: 'Category' },
-    { image: exhibition, label: '기획전', type: 'Exhibition' },
-    { image: brand, label: '브랜드', type: 'Brand' },
+    { image: all, ...FilterType.All },
+    { image: product, ...FilterType.Product },
+    { image: category, ...FilterType.Category },
+    { image: exhibition, ...FilterType.Exhibition },
+    { image: brand, ...FilterType.Brand },
   ];
 
   return (

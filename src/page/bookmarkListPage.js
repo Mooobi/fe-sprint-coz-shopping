@@ -1,7 +1,6 @@
 import ProductFilter from '../components/ProductFilter';
 import BookmarkLists from '../components/BookmarkLists';
-import Modal from '../components/Modal';
-import classes from './mainPage.module.css';
+import classes from './bookmarkListPage.module.css';
 
 const BookmarkListPage = (props) => {
   const {
@@ -9,8 +8,6 @@ const BookmarkListPage = (props) => {
     filter,
     visible,
     bookmarked,
-    selectedItem,
-    modal,
     handleFilterClick,
     handleBookmark,
     handleModalChange,
@@ -26,14 +23,6 @@ const BookmarkListPage = (props) => {
         visible={visible}
         handleBookmark={handleBookmark}
         handleModalChange={handleModalChange}
-        bookmarked={bookmarked}
-        setBookmarked={setBookmarked}
-      />
-      <Modal
-        modal={modal}
-        handleModalChange={handleModalChange}
-        selectedItem={selectedItem}
-        handleBookmark={handleBookmark}
         bookmarked={bookmarked}
         setBookmarked={setBookmarked}
       />

@@ -17,6 +17,13 @@ const ProductList = (props) => {
     follower,
   } = item;
 
+  const filterType = {
+    product: 'Product',
+    category: 'Category',
+    exhibition: 'Exhibition',
+    brand: 'Brand',
+  };
+
   const isBookmarked = localStorage.getItem(item?.id);
 
   const handleBookmarkClick = (e) => {
@@ -33,65 +40,44 @@ const ProductList = (props) => {
           alt={isBookmarked ? 'bookmarkOn' : 'bookmarkOff'}
           onClick={handleBookmarkClick}
         />
-        {type === 'Product' && (
-          <section className={classes.info}>
-            <img
-              className={classes.img}
-              src={image_url}
-              alt={title}
-              onClick={() => handleModalChange(item)}
-            />
-            <p className={`${classes.title} ${classes.first}`}>{title}</p>
-            <p className={`${classes.discount} ${classes.second}`}>
-              {discountPercentage ? `${discountPercentage}%` : '00%'}
-            </p>
-            <p className={`${classes.price} ${classes.fourth}`}>
-              {`${Number(price).toLocaleString()}원`}
-            </p>
-          </section>
-        )}
-        {type === 'Category' && (
-          <section className={classes.info}>
-            <img
-              className={classes.img}
-              src={image_url}
-              alt={title}
-              onClick={() => handleModalChange(item)}
-            />
-            <p
-              className={`${classes.title} ${classes.first}`}
-            >{`# ${title}`}</p>
-          </section>
-        )}
-        {type === 'Exhibition' && (
-          <section className={classes.info}>
-            <img
-              className={classes.img}
-              src={image_url}
-              alt={title}
-              onClick={() => handleModalChange(item)}
-            />
-            <p className={`${classes.title} ${classes.first}`}>{title}</p>
+        <section className={classes.info}>
+          <img
+            className={classes.img}
+            src={type !== filterType.brand ? image_url : brand_image_url}
+            alt={title}
+            onClick={() => handleModalChange(item)}
+          />
+          <p className={`${classes.title} ${classes.first}`}>
+            {type === filterType.category
+              ? `# ${title}`
+              : type === filterType.brand
+              ? brand_name
+              : title}
+          </p>
+          {type === filterType.product && (
+            <>
+              <p className={`${classes.discount} ${classes.second}`}>
+                {discountPercentage ? `${discountPercentage}%` : '00%'}
+              </p>
+              <p className={`${classes.price} ${classes.fourth}`}>
+                {`${Number(price).toLocaleString()}원`}
+              </p>
+            </>
+          )}
+          {type === filterType.exhibition && (
             <p className={`${classes.subTitle} ${classes.third}`}>
               {sub_title}
             </p>
-          </section>
-        )}
-        {type === 'Brand' && (
-          <section className={classes.info}>
-            <img
-              className={classes.img}
-              src={brand_image_url}
-              alt={title}
-              onClick={() => handleModalChange(item)}
-            />
-            <p className={`${classes.title} ${classes.first}`}>{brand_name}</p>
-            <p className={`${classes.count} ${classes.second}`}>관심고객수</p>
-            <p className={`${classes.follower} ${classes.fourth}`}>
-              {follower.toLocaleString()}
-            </p>
-          </section>
-        )}
+          )}
+          {type === filterType.brand && (
+            <>
+              <p className={`${classes.count} ${classes.second}`}>관심고객수</p>
+              <p className={`${classes.follower} ${classes.fourth}`}>
+                {follower.toLocaleString()}
+              </p>
+            </>
+          )}
+        </section>
       </section>
     </>
   );

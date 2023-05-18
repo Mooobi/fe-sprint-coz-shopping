@@ -14,27 +14,25 @@ const BookmarkLists = (props) => {
 
   return (
     <section className={classes.listsContainer}>
-      <section className={classes.lists}>
+      <ul className={classes.lists}>
         {products
           .filter((item) => localStorage.getItem(item.id) !== null)
           .filter((item) => filter === null || item.type === filter)
           .slice(visible.start, visible.end)
           .map((item) => {
             return (
-              <ul key={item.id}>
-                <li className={classes.list}>
-                  <ProductList
-                    item={item}
-                    handleBookmark={handleBookmark}
-                    handleModalChange={handleModalChange}
-                    bookmarked={bookmarked}
-                    setBookmarked={setBookmarked}
-                  />
-                </li>
-              </ul>
+              <li key={item.id} className={classes.list}>
+                <ProductList
+                  item={item}
+                  handleBookmark={handleBookmark}
+                  handleModalChange={handleModalChange}
+                  bookmarked={bookmarked}
+                  setBookmarked={setBookmarked}
+                />
+              </li>
             );
           })}
-      </section>
+      </ul>
     </section>
   );
 };
