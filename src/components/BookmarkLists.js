@@ -2,15 +2,8 @@ import ProductList from './ProductList';
 import classes from './ProductLists.module.css';
 
 const BookmarkLists = (props) => {
-  const {
-    products,
-    filter,
-    visible,
-    handleBookmark,
-    handleModalChange,
-    bookmarked,
-    setBookmarked,
-  } = props;
+  const { products, filter, visible, handleBookmark, handleModalChange } =
+    props;
 
   return (
     <section className={classes.listsContainer}>
@@ -26,8 +19,6 @@ const BookmarkLists = (props) => {
                   item={item}
                   handleBookmark={handleBookmark}
                   handleModalChange={handleModalChange}
-                  bookmarked={bookmarked}
-                  setBookmarked={setBookmarked}
                 />
               </li>
             );
