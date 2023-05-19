@@ -7,11 +7,9 @@ const BookmarkListPage = (props) => {
     products,
     filter,
     visible,
-    bookmarked,
     handleFilterClick,
     handleBookmark,
     handleModalChange,
-    setBookmarked,
   } = props;
 
   return (
@@ -23,8 +21,6 @@ const BookmarkListPage = (props) => {
         visible={visible}
         handleBookmark={handleBookmark}
         handleModalChange={handleModalChange}
-        bookmarked={bookmarked}
-        setBookmarked={setBookmarked}
       />
     </div>
   );
