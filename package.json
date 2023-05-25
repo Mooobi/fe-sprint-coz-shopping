@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@storybook/react": "^7.0.17",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -12,6 +13,7 @@
     "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.3",
+    "styled-components": "^6.0.0-rc.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -21,12 +23,15 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build",
-    "postbuild": "cp build/index.html build/404.html"
+    "postbuild": "cp build/index.html build/404.html",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -41,5 +46,19 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://Mooobi.github.io/fe-sprint-coz-shopping"
+  "homepage": "https://Mooobi.github.io/fe-sprint-coz-shopping",
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.17",
+    "@storybook/addon-interactions": "^7.0.17",
+    "@storybook/addon-links": "^7.0.17",
+    "@storybook/blocks": "^7.0.17",
+    "@storybook/preset-create-react-app": "^7.0.17",
+    "@storybook/react-webpack5": "^7.0.17",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint-plugin-storybook": "^0.6.12",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.17",
+    "webpack": "^5.84.0"
+  }
 }
