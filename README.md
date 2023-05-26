@@ -1,6 +1,6 @@
 # fe-sprint-coz-shopping
 코드스테이츠 SEB_FE_44 과정에서 제작한 솔로프로젝트입니다.
-- 링크 : https://mooobi.github.io/fe-sprint-coz-shopping/products/list 
+- 링크 : https://mooobi.github.io/fe-sprint-coz-shopping
 
 (배포된 버전은 fetch 요청으로 데이터를 받아오지 않고, Data 파일을 포함하고 있습니다.
 gh pages의 특성상, 기본 url은 https로만 만들어지는데, 데이터를 받아오는 api의 url은 http를 사용합니다. 웹브라우저는 보안 상의 문제로 이러한 Mixed Content(https와 http 간의 리소스 요청)를 허용하지 않습니다. 새로운 도메인을 등록하는 방법, 네트워크 요청을 하지 않고 더미 데미터를 사용하는 방법 중에서 고민을 하다가, 요구사항에서 네트워크 요청은 최초 1회만 받는걸로 명시되어 있어, 더미 데이터를 사용하는 방식을 채택하였습니다.
